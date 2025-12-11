@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registre Stérilisateur</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script src="script3.js" defer></script>
+
+</head>
+<body class="tool">
+<main>
+
+    <div class="header-band">
+        <div class="container header-inner" style="display:flex;align-items:center;justify-content:space-between;">
+            <h1 style="font-size:1.8rem;font-family:Arial, sans-serif;">LES REGISTRES EXIGÉS</h1>
+            <nav class="nav" style="display:flex;gap:20px;">
+                <a href="contact.html" style="padding:11px 30px;background:#012e50;color:#fff;border-radius:6px;text-decoration:none;margin-right:auto;">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="bande-sous">
+        <h1 style="font-size:1.3rem;margin:6px 0">Registre du stérilisateur</h1>
+    </div>
+
+    <div class="container">
+        <div class="legend">
+            <h3>Légende:</h3>
+            <h5>IC = indicateur chimique | IB = indicateur biologique | DPE = dispositif de procédé d'essai</h5>
+        </div>
+
+        <form id="steri-form">
+            <div class="input-area" style="padding-top: 25px;">
+                <div class="field" id="date-group">
+                    <label for="dateY">Date (année/mois/jour) :</label>
+                    <input id="dateY" type="text" class="input-text input-yr" inputmode="numeric" maxlength="4" placeholder="AAAA" />
+                    <span style="margin:0 6px;color:#888">/</span>
+                    <input id="dateM" type="text" class="input-text input-mm" inputmode="numeric" maxlength="2" placeholder="MM" />
+                    <span style="margin:0 6px;color:#888">/</span>
+                    <input id="dateD" type="text" class="input-text input-dd" inputmode="numeric" maxlength="2" placeholder="JJ" />
+                </div>
+
+                <div class="codeDuSteri" style="margin-left:auto; text-align:right;">
+                    <label for="code">Code du stérilisateur :</label>
+                    <input id="code" type="text" class="input-text" placeholder="" />
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table id="grid">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">Paramètres</th>
+                        <th colspan="8">Numéro de la charge</th>
+                    </tr>
+                    <tr>
+                        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Vérification de paramètres physiques</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Vérification de l’IC de type 1 de chaque paquet</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Vérification de l’IC de type 4 de chaque paquet</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Vérification du DPE avec IC de type 5 de la charge</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>DPE avec IB et IC de type 5</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>DPE avec IC de type 2</td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-actions">
+                <button type="button" class="btn" onclick="ajouterColonne()">+ Ajouter une charge</button>
+                <button type="button" class="btn secondary" onclick="supprimerColonne()">– Supprimer la dernière charge</button>
+            </div>
+
+            <div class="deuxieme-bande">
+                <h2 class="titre-echec">REGISTRE DES ÉCHECS DE STÉRILISATION</h2>
+            </div>
+
+            <div class="question1">
+                <label for="q1">Type d’échec (IB, PP, IC de type 1, 2, 3, 4 ou 5)</label>
+                <textarea id="q1" class="question-box" placeholder="Réponse ici..."></textarea>
+            </div>
+
+            <div class="question2">
+                <label for="dm">Liste et quantité des DM rappelés :</label>
+                <textarea id="dm" class="question-box" placeholder="Réponse ici..."></textarea>
+            </div>
+
+            <div class="question3">
+                <label for="resolution">Résolution du problème :</label>
+                <textarea id="resolution" class="question_box" placeholder="Réponse ici..."></textarea>
+            </div>
+
+            <div class="troixieme-bande">
+                <h2 class="titre-echec">REGISTRE DES CYCLES NON EMBALLÉS</h2>
+            </div>
+
+            <div class="questions-section">
+                <div class="field"><label for="question-4">Numéro de la charge :</label><textarea id="question-4"></textarea></div>
+                <div class="field"><label for="question-5">Nom du patient :</label><textarea id="question-5"></textarea></div>
+                <div class="field"><label for="question-6">Procédure dentaire réalisée :</label><textarea id="question-6"></textarea></div>
+                <div class="field"><label for="question-7">Nom du professionnel :</label><textarea id="question-7"></textarea></div>
+                <div class="field"><label for="question-8">DM utilisés :</label><textarea id="question-8"></textarea></div>
+                <div class="field"><label for="question-9">Vérification des PP et DPE avec IC de type 5 :</label><textarea id="question-9"></textarea></div>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn">Soumettre & Télécharger en PDF</button>
+                <button type="button" class="btn secondary" onclick="window.print()">Imprimer / PDF</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

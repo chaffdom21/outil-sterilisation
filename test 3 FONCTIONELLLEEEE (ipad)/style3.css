@@ -1,0 +1,349 @@
+
+
+
+
+
+
+.logo img {
+    box-shadow: none !important;
+    filter: none !important;
+    background: none !important;
+
+}
+/* Embed key tool styles to keep it portable */
+:root {
+    --primary: #11548e;
+    --primary-dark: #005fa3;
+}
+body.tool { background: linear-gradient(180deg,#0a0f1f, #0b1430); }
+.container { padding: 20px; }
+.header-band { background-color: var(--primary); padding: 10px 0; color:#fff; }
+.header-band h1 { margin: 6px 0 0 30px; line-height:1.2; }
+.bande-sous { background-color: #1b1c30; padding: 8px 12px; text-align:center; color: #bec5dd; }
+h2 { font-size: 20px; margin-bottom: 8px; color: #bdc3dc; }
+h3 { font-size: 16px; margin: 15px 0 4px; color:#444; }
+h5 { font-size: 13px; font-weight: normal; color:#666; margin: 0 0 8px; }
+.input-area { margin: 12px 0; display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+.field { display:flex; align-items:center; gap:8px; }
+.field label {font-weight:600; white-space:nowrap; }
+.input-text { padding: 10px 12px; font-size: 16px; border:1px solid #bbb; border-radius: 8px; }
+.input-text:focus { border-color: var(--primary); box-shadow: 0 0 4px rgba(0,119,204,.25); outline:none; }
+#date.input-text{ width: 140px; }
+#code.input-text{ width: 160px; }
+.table-wrap { width:100%; overflow-x:auto; border-radius: 8px; }
+table { min-width:720px; width:100%; border-collapse:collapse; margin-top: 0px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); background: #ffffff; }
+thead th { background: var(--primary); color:#fff; font-weight:600; text-align:center; padding:10px;}
+thead tr:first-child th { background: var(--primary-dark); }
+td, th { border:1px solid #bbc2d8; padding:20px; text-align:center; }
+tbody td:first-child { text-align:left; font-weight:600; background: #ffffff;}
+input[type="checkbox"] { transform: scale(1.3); cursor:pointer; accent-color: var(--primary); }
+.echec { margin-top:16px; background:#f7f9ff; border-left:4px solid var(--primary); padding:8px 12px; border-radius:6px; }
+.question1 { margin:8px 0 20px; display:flex; flex-direction:column; gap:8px;  }
+.question1 label { font-weight:3000;}
+.question2 label {font-weight:3000; color: #0077cc; }
+.questionbox { min-height: 100px; padding:10px; border:1px solid #ffffff; border-radius:5px; font-size:16px; }
+.actions { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 24px; }
+.btn {
+    appearance:none; border:0; background: var(--primary); color:#fff; padding:12px 16px; border-radius:10px;
+    font-size:16px; font-weight:600; cursor:pointer; box-shadow:0 6px 16px rgba(0,119,204,.25);
+}
+.btn.secondary { background:#111; }
+.hint { font-size:12px; color:#666; }
+@media (max-width:600px){
+    #date.input-text{ width: 120px; }
+    #code.input-text{ width: 140px; }
+    td, th { padding: 8px; }
+    .btn { width:100%; }
+}
+.question2 {
+    margin:8px 0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    color: #45e49c !important;
+}
+.question2 label { font-weight:600;}
+.question-box { min-height: 100px; padding:10px; border:1px solid #ffffff; border-radius:5px; font-size: 16px; }
+
+.question3 {
+    margin:8px 0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.question_box {
+    min-height: 350px;
+    padding:10px;
+    border:1px solid #424242;
+    border-radius:5px;
+    font-size: 16px;
+}
+
+
+@media print {
+    .actions, .hint { display:none !important; }
+    .table-wrap { overflow:visible; }
+    table { box-shadow:none; background:#fff; }
+    .header-band, .bande-sous { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+.titre-echec {
+    font-size: 1.4rem;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1.5px;
+    color: #fff;
+    margin: 0;
+    padding: 8px 0;
+}
+.deuxieme-bande {
+    background: #005fa3;
+    text-align: center;
+    border-radius: 8px;
+    margin: 30px 0 20px;
+    padding: 12px;
+}
+.troixieme-bande {
+    background: #005fa3;
+    text-align: center;
+    border-radius: 8px;
+    margin: 30px 0 20px;
+    padding: 12px;
+    margin-top: 40px;
+}
+
+
+/* Contrast fixes: force dark text within the tool block sitting on dark site background */
+.tool table, .tool td, .tool th { color: #efefef !important; }
+.tool tbody td:first-child { color: #000000 !important; }
+.tool .field label { color:#111 !important; }
+.tool .question1 label { color: #000000 !important; }
+.tool .question2 label { color: #ececec !important; }
+.tool .questionbox { color: #0b0b0b !important; background:#fff; }
+.tool h3, .tool h5 { color:#222 !important; }
+.tool .question3 label { color: #e3e3e3 !important; }
+
+/* Make legend texts white for visibility */
+.tool h3, .tool h5 { color: #f3f3f3 !important;}
+
+
+/* Legend styling for readability */
+.legend{ background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:10px 12px; border-radius:10px; margin:10px 0 6px 0; }
+.legend h3, .legend h5 { color:#fff !important; margin: 4px 0; }
+
+
+/* Force Date/Code labels + inputs to black text */
+.tool .field label { color: #000000 !important; }
+.tool .input-text { color:#111 !important; background:#fff !important; }
+
+
+/* Inputs + placeholders in black for readability */
+.tool .input-text { color:#111 !important; background:#fff !important; }
+.tool .input-text::placeholder { color: #505050 !important; opacity:0.8; }
+/* Ensure field labels are black as well */
+.tool .field label { color:#111 !important; }
+
+
+
+/* FINAL input color fix */
+.tool body, .tool form, .tool input, .tool textarea { color:#111 !important; }
+.tool .input-text, .tool .questionbox { color:#111 !important; background: #dddddd !important; }
+.tool .input-text::placeholder, .tool .questionbox::placeholder { color: #707070 !important; opacity:1 !important; }
+.tool .field label { color:#111 !important; }
+
+
+/* Force labels to white for clarity on dark background */
+.tool .field label,
+.tool .question1 label {
+    color: #6c6c6c !important;
+}
+
+
+/* Date triplet fields */
+.tool .input-yr{ width:90px !important; text-align:center; }
+.tool .input-mm,.tool .input-dd{ width:70px !important; text-align:center; }
+/* Visual slash separators should be lighter on dark background */
+.tool #date-group span{ color:#cfd7ef !important;  }
+
+
+/* --- Tool mobile enhancements --- */
+@media (max-width: 640px){
+    .tool .input-text { padding: 12px 14px; font-size: 18px; border-radius: 12px; }
+    .tool .questionbox { min-height: 140px; font-size: 18px; border-radius: 12px; }
+    .tool .btn { padding: 14px 18px; border-radius: 14px; font-weight: 700; }
+    .tool .actions { gap: 12px; }
+    .tool table { min-width: 680px; }
+    .tool .table-wrap { position: relative; -webkit-overflow-scrolling: touch; }
+    .tool .table-wrap::after {
+        content: 'Glissez →';
+        position: absolute; right: 10px; top: -28px;
+        font-size: 12px; color: #cfe2ff; opacity: .9;
+        background: rgba(0,0,0,.25); padding: 4px 8px; border-radius: 999px;
+    }
+    .tool tbody td:first-child, .tool thead th:first-child {
+        position: sticky; left: 0; z-index: 1; background: #f4f6f8;
+    }
+}
+
+
+/* Toast default style tweak for mobile safe area */
+@media (max-width: 640px){
+    .tool .toast { bottom: calc(18px + env(safe-area-inset-bottom)); }
+}
+
+/* Section des questions */
+.questions-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes */
+    gap: 20px; /* espace entre les blocs */
+    margin-top: 30px;
+}
+
+/* Chaque question */
+.questions-section .field {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9; /* fond doux */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Titres (labels) */
+.questions-section .field label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #222; /* bien lisible */
+    font-size: 0.95rem;
+}
+
+/* Zone de texte */
+.questions-section .field textarea {
+    resize: vertical; /* permet d’agrandir verticalement */
+    min-height: 60px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Effet focus quand on clique dedans */
+.questions-section .field textarea:focus {
+    border-color: #005fa3;
+    box-shadow: 0 0 4px rgba(0,95,163,0.3);
+    outline: none;
+}
+
+/* Responsive : sur mobile (moins de 700px) */
+@media (max-width: 700px) {
+    .questions-section {
+        grid-template-columns: 1fr; /* une seule colonne */
+    }
+}
+.table-actions {
+    padding-bottom: 30px;
+}
+
+button {
+    box-shadow: none !important;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #063053, #000000);
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.header-band{
+    background: linear-gradient(135deg, #063053, #000000);
+    color: #fff;
+}
+
+.bande-sous{
+    background: linear-gradient(135deg, #2f80cd, #213380);
+    color: #fff;
+}
+
+.header-band, .bande-sous, .deuxieme-bande, .troixieme-bande {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideFadeIn 0.8s forwards;
+}
+
+.header-band { animation-delay: 0.1s; }
+.bande-sous { animation-delay: 0.4s; }
+.deuxieme-bande { animation-delay: 0.7s; }
+.troixieme-bande { animation-delay: 1s; }
+
+@keyframes slideFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.underlined-title {
+    display: inline-block;       /* So the underline matches the text width */
+    border-bottom: 3px solid #00bfff; /* Color and thickness of the underline */
+    padding-bottom: 4px;         /* Space between text and underline */
+}
+
+.codeDuSteri
+{
+    color: #ffffff;
+}
+
+#date-group input {
+    width: 20px;       /* largeur des cases AAAA / MM / JJ */
+    height: 25px;      /* hauteur des cases */
+    font-size: 80%;    /* texte à l’intérieur */
+    padding: 2px 4px;  /* espace interne (haut/bas, gauche/droite) */
+}
+
+.codeDuSteri input {
+    width: 90px !important;      /* largeur du champ */
+    height: 30px;      /* hauteur */
+    font-size: 80%;
+    padding: 2px 4px;
+}
+.questionbox,
+.question-box,
+.question_box,
+textarea {
+    white-space: pre-line !important;
+}
+@media print {
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #000;
+        border-radius: 3px;
+        display: inline-block;
+        position: relative;
+    }
+
+    input[type="checkbox"]:checked::after {
+        content: "✔";
+        font-size: 16px;
+        position: absolute;
+        top: -3px;
+        left: 2px;
+    }
+}
+@media print {
+    table input[type="checkbox"] {
+        margin: 0;
+        padding: 0;
+    }
+}
